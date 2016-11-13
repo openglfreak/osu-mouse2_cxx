@@ -1,0 +1,14 @@
+#include <winuser.h>
+#include "resources.h"
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "osu!mouse2.exe.manifest"
+IDI_LOGO ICON "logo.ico"
+IDB_LOGO PNG "logo.png"
+IDR_TRAY_POPUPMENU MENU
+BEGIN
+    POPUP "TrayContextMenu"
+    BEGIN
+        MENUITEM "Enable Acceleration", IDM_TRAY_POPUPMENU_ENABLE
+        MENUITEM "Disable Acceleration", IDM_TRAY_POPUPMENU_DISABLE
+        MENUITEM "Exit", IDM_TRAY_POPUPMENU_EXIT
+    END
+END

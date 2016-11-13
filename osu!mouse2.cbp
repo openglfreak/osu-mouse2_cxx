@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="osu!mouse2" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc_compiler_w64" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/osu!mouse2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_compiler_w64" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-Og" />
+					<Add option="-g" />
+					<Add option="-march=native" />
+					<Add option="-DDEBUG" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/osu!mouse2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_w64" />
+				<Compiler>
+					<Add option="-fomit-frame-pointer" />
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-flto" />
+					<Add option="-O3" />
+				</Compiler>
+				<Linker>
+					<Add option="-flto" />
+					<Add option="-s" />
+					<Add option="-static-libstdc++" />
+					<Add option="-static-libgcc" />
+					<Add option="-static" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-m64" />
+			<Add option="-Wno-parentheses" />
+			<Add option="-DUNICODE" />
+			<Add option="-D_UNICODE" />
+		</Compiler>
+		<Linker>
+			<Add option="-m64" />
+			<Add library="gdi32" />
+			<Add library="user32" />
+			<Add library="kernel32" />
+			<Add library="comctl32" />
+			<Add library="ole32" />
+			<Add library="psapi" />
+			<Add library="gdiplus" />
+		</Linker>
+		<Unit filename="accel.cpp" />
+		<Unit filename="common.h" />
+		<Unit filename="fgwnd.cpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="osu!mouse2.exe.manifest" />
+		<Unit filename="osu!mouse2.rc">
+			<Option compilerVar="WINDRES" />
+			<Option compiler="gnu_gcc_compiler_w64" use="1" buildCommand='$(WINDRES) $rescomp $res_includes $res_options -J rc -O coff -i $file -o $resource_output [[if (GetProjectManager().GetActiveProject().GetCompilerOptions().Index(_T(&quot;-m64&quot;)) != -1 || GetProjectManager().GetActiveProject().GetCurrentlyCompilingTarget().GetCompilerOptions().Index(_T(&quot;-m64&quot;)) != -1) print(_T(&quot;-F pe-x86-64&quot;)); else print(_T(&quot;-F pe-i386&quot;));]]' />
+		</Unit>
+		<Unit filename="resources.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
